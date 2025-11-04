@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<!-- Inicio de estilos CSS locales (se aplican solo a esta plantilla) -->
+<style>
+  /* Variables CSS: colores y radios reutilizables */
+  :root {
+    --fondo: #f6faff; /* azul tenue */
+    --texto: #2f4a5f; /* color texto principal */
+    --acento: #1e90ff; /* color acento */
+    --card: #ffffffcc; /* fondo tarjeta semitransparente */
+    --radio: 10px; /* borde redondeado */
+  }
+
+  /* Estilos para el elemento body: color de fondo, tipografía y espaciado */
+  body {
+    background-color: var(--fondo);
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--texto);
+    margin: 0;
+    padding: 2rem;
+  }
+
+  /* Contenedor principal centrado y con ancho máximo */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Estilo para el título principal */
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Estilo para párrafos: tamaño y margen inferior */
+  p {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  /* Tarjeta que contiene el contenido principal */
+  .card {
+    background: var(--card);
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radio);
+    box-shadow: 0 6px 18px rgba(11, 47, 74, 0.08);
+  }
+
+  /* Estilo para etiquetas */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  /* Estilos para el select del menú desplegable */
+  select#categoria {
+    width: 100%;
+    max-width: 420px;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #cfe8ff;
+    background: linear-gradient(180deg, #fff, #f7fbff);
+    color: var(--texto);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: box-shadow 0.15s ease, transform 0.08s ease;
+  }
+
+  /* Estilo cuando el select tiene foco */
+  select#categoria:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.12);
+    transform: translateY(-1px);
+  }
+
+  /* Contenedor para enlaces alternativos */
+  .links {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Estilos para los enlaces dentro de links */
+  .links a {
+    color: var(--acento);
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
+  }
+
+  /* Ajustes responsivos para pantallas pequeñas */
+  @media (max-width: 520px) {
+    body {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    img {
+      align-items: center;
+    }
+
+  }
+</style>
+<h1>Angel Gabriel Esparza Moreno</h1>
+<!-- Tarjeta principal que contiene el contenido visible de la página -->
+<main class="card">
+  <h1>Bienvenido al Menú de Películas</h1>
+  <p>Selecciona una categoría para ver las películas disponibles.</p>
+
+  <label for="categoria">Categoría:</label>
+  <select id="categoria" name="categoria" aria-label="Seleccionar categoría">
+    <option value="">-- Elige categoría --</option>
+    <option value="/suspenso">Suspenso</option>
+    <option value="/terror">Terror</option>
+    <option value="/romance">Romance</option>
+    <option value="/infantil">Infantil</option>
+  </select>
+
+  <!-- Bloque con enlaces alternativos para usuarios sin JavaScript -->
+  <div class="links">
+    <noscript>
+      <p>Si JavaScript está desactivado, usa los enlaces:</p>
+      <ul>
+        <li><a href="/suspenso">Suspenso</a></li>
+        <li><a href="/terror">Terror</a></li>
+        <li><a href="/romance">Romance</a></li>
+        <li><a href="/infantil">Infantil</a></li>
+      </ul>
+    </noscript>
+  </div>
+</main>
+
+<!-- Script que redirige al usuario cuando cambia la opción del select -->
+<script>
+  document.getElementById('categoria').addEventListener('change', function () {
+    if (this.value) window.location.href = this.value;
+  });
+</script>
+
+{% endblock %}

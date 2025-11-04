@@ -1,0 +1,61 @@
+body {
+  font-family: 'Georgia', serif; /* Fuente elegante para el cuerpo del texto */
+  margin: 20px;
+  background-color: #f8f8f8; /* Fondo ligeramente gris */
+  color: #333; /* Color de texto principal */
+}
+
+h1 {
+  text-align: center; /* Centra el título del menú */
+  color: #8B0000; /* Rojo oscuro para el título principal */
+  margin-bottom: 30px;
+  font-size: 3em; /* Tamaño de fuente grande para el título */
+}
+
+.menu-section {
+  margin-bottom: 40px;
+  border-top: 2px dashed #ccc; /* Separador de sección con línea discontinua */
+  padding-top: 20px;
+}
+
+.menu-section h2 {
+  color: #555; /* Color gris oscuro para el nombre de la sección */
+  font-size: 2em;
+  text-transform: uppercase; /* Texto en mayúsculas para las secciones */
+  margin-bottom: 20px;
+}
+
+.plato {
+  display: flex; /* Usa Flexbox para alinear nombre y precio */
+  justify-content: space-between; /* Separa el nombre y el precio en los extremos */
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Línea fina entre platos */
+}
+
+.plato:last-child {
+  border-bottom: none; /* Sin borde inferior en el último plato de la sección */
+}
+
+.plato h3 {
+  color: #222; /* Color más oscuro para el nombre del plato */
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.precio {
+  color: #006400; /* Verde oscuro para el precio */
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.descripcion {
+  font-style: italic; /* Texto en cursiva para la descripción */
+  color: #666;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+
+

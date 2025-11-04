@@ -1,0 +1,26 @@
+<!-- Indica que esta plantilla hereda de base.html para reutilizar la estructura común (head, nav, main) --> 
+{% extends 'base.html' %}
+
+<!-- Define el contenido que reemplaza el bloque 'title' en base.html; aquí el título de la pestaña será "Suspenso" -->
+{% block title %}Suspenso{% endblock %}
+
+<!-- Abre el bloque 'content' que será insertado dentro del <main> de base.html -->
+{% block content %}
+  <!-- Encabezado visible en la página que indica la sección mostrada -->
+<h1>Angel Gabriel Esparza Moreno</h1>
+  <h1>Películas de Suspenso</h1>
+   <h2>Mi video de YouTube</h2>
+
+  
+<iframe width="560" height="315" src="https://www.youtube.com/embed/c62yAsI0-y4?si=8Kvo7w9eLm-ySFLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <!-- Lista no ordenada que contendrá las películas recibidas desde app.py -->
+  <ul>
+    <!-- Bucle Jinja que itera sobre la variable 'peliculas' pasada desde la vista -->
+    {% for pelicula in peliculas %}
+      <!-- Cada elemento de la lista muestra el título en negrita y la sinopsis -->
+      <li><strong>{{ pelicula.titulo }}</strong>: {{ pelicula.sinopsis }}</li>
+    <!-- Fin del bucle for -->
+    {% endfor %}
+  </ul>
+<!-- Cierra el bloque 'content' -->
+{% endblock %}

@@ -1,0 +1,25 @@
+<!-- Indica que esta plantilla hereda de la plantilla base (reutiliza la estructura de base.html) -->
+{% extends 'base.html' %}
+
+<!-- Abre el bloque 'title' para que el título de la página sea "Romance" -->
+{% block title %} Romance{% endblock %}
+
+<!-- Abre el bloque 'content' donde irá el contenido específico de esta página--->
+{% block content %}
+<h1>Angel Gabriel Esparza Moreno</h1>  <!-- Título principal visible en la página -->
+  <h1>Películas de Romance</h1>
+   <h2>Mi video de YouTube</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/V-rv4C17J0s?si=DKOlobenwxqgwx7m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <!-- Lista no ordenada que contendrá las películas de la categoría -->
+   <ul>
+    <!-- Inicio de bucle Jinja: itera sobre la variable 'peliculas' pasada desde app.py -->
+    {% for pelicula in peliculas %}
+      <!-- Elemento de lista: muestra el titulo en negrita y la sinopsis -->
+      <li><strong>{{ pelicula.titulo }}</strong>: {{ pelicula.sinopsis }}</li>
+    <!-- Fin del bucle for -->
+    {% endfor %}
+  </ul>
+<!-- Cierra el bloque 'content' -->
+{% endblock %}
